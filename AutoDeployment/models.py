@@ -4,17 +4,17 @@ from django.db import models
 import django.utils.timezone as timezone
 
 MAYBECHOICE = (
-    ('p', 'Pending'),
-    ('r', 'Processing'),
-    ('f', 'Failed'),
-    ('a', 'Approved'),
-    ('d', 'Canceled'),
-    ('c', 'Completed'),
+    ('pending', 'Pending'),
+    ('processing', 'Processing'),
+    ('failed', 'Failed'),
+    ('approved', 'Approved'),
+    ('canceled', 'Canceled'),
+    ('completed', 'Completed'),
 )
 
 DEPLOYSERVER = (
-    ('d', 'Deploy_Test'),
-    ('i', 'INT_SHA'),
+    ('deploy_server', 'Deploy_Test'),
+    ('int_sha', 'INT_SHA'),
 )
 
 CHANGE_TYPE = (
@@ -33,11 +33,11 @@ CHANGE_TYPE = (
 class Deploy(models.Model):
     RFC_Number = models.CharField(max_length=50)
     RFC_SQL = models.TextField(max_length=50000)
-    RFC_STATUS = models.CharField(max_length=1, choices=MAYBECHOICE, default='p')
+    RFC_STATUS = models.CharField(max_length=20, choices=MAYBECHOICE, default='pending')
     Entry_Time = models.DateTimeField('Entry Time',auto_now_add = True)
     Modify_Time = models.DateTimeField('Modify Time', auto_now = True)
     Deploy_Date = models.DateTimeField('Deploy Date', null = True)
-    Deploy_Server = models.CharField(max_length=1, choices=DEPLOYSERVER, default='d')
+    Deploy_Server = models.CharField(max_length=20, choices=DEPLOYSERVER, default='deploy_server')
     Completed_Time = models.DateTimeField('Deploy Date', null = True)
     Deploy_Log = models.CharField(max_length=1000, null=True)
     Change_Type = models.CharField(max_length=1, choices=CHANGE_TYPE, default='')
