@@ -16,3 +16,6 @@ python manager.py runserver 0.0.0.0:8000
 
 ### Create admin
 python manage.py createsuperuser 
+
+### Set Time Zone
+>TIME_ZONE = 'Asia/Shanghai'
