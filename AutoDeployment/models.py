@@ -12,9 +12,18 @@ MAYBECHOICE = (
     ('completed', 'Completed'),
 )
 
+SHOWCHOICE = (
+    ('success','Sucess'),
+    ('pending','Pending'),
+    ('danger','Danger'),
+    ('info','Info'),
+    ('warning','Warning'),
+)
+
 DEPLOYSERVER = (
     ('deploy_server', 'Deploy_Test'),
     ('int_sha', 'INT_SHA'),
+    ('sha_prod', 'SHA_Prod'),
 )
 
 CHANGE_TYPE = (
@@ -34,6 +43,7 @@ class Deploy(models.Model):
     RFC_Number = models.CharField(max_length=50)
     RFC_SQL = models.TextField(max_length=50000)
     RFC_STATUS = models.CharField(max_length=20, choices=MAYBECHOICE, default='pending')
+    SHOW_STATUS = models.CharField(max_length=20, choices=SHOWCHOICE, default='pending')
     Entry_Time = models.DateTimeField('Entry Time',auto_now_add = True)
     Modify_Time = models.DateTimeField('Modify Time', auto_now = True)
     Deploy_Date = models.DateTimeField('Deploy Date', null = True)

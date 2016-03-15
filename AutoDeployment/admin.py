@@ -8,7 +8,7 @@ class DeployAdmin(admin.ModelAdmin):
     #inlines = [TagInline] #Inline
     fieldsets = (
         ['Main',{
-            'fields':('RFC_Number','RFC_STATUS', 'Deploy_Date','Deploy_Server','RFC_SQL'),
+            'fields':('RFC_Number','RFC_STATUS','SHOW_STATUS', 'Deploy_Date','Deploy_Server','RFC_SQL'),
         }],
         ['Advance',{
             'classes': ('collapse',), # CSS

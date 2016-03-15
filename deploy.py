@@ -14,6 +14,7 @@ Select_data = "SELECT RFC_SQL,id,Deploy_Date,RFC_STATUS,RFC_Number,Deploy_Server
 
 Deploy_Server = {"deploy_server" : ['192.168.103.133','deploy','deploy','deploy_PIXOS2'],
                  "int_sha" : ['10.30.0.21','deploy','deploy','PHX_PIXOS2_NORTH']
+                 "sha_prod" : ['10.30.0.21','deploy','deploy','PHX_PIXOS2_NORTH']
                 }
 				
 cur = con.cursor()
@@ -26,8 +27,8 @@ for row in tickets:
         break
     print row[4]+ " Deploy Time is: "+ str(row[2])
     Change_status = 'UPDATE AutoDeployment_deploy SET RFC_STATUS="processing" WHERE id= {0} AND RFC_Number = "{1}";'.format(row[1],row[4])
-    Completed_status = 'UPDATE AutoDeployment_deploy SET RFC_STATUS="completed",Completed_Time = NOW(),Deploy_Log = "RFC Execute Success" WHERE id= {0} AND RFC_Number = "{1}";'.format(row[1],row[4])
-    Failed_status = 'UPDATE AutoDeployment_deploy SET RFC_STATUS="failed", Completed_Time = NOW() WHERE id= {0} AND RFC_Number = "{1}";'.format(row[1],row[4])
+    Completed_status = 'UPDATE AutoDeployment_deploy SET RFC_STATUS="completed", SHOW_STATUS="success",Completed_Time = NOW(),Deploy_Log = "RFC Execute Success" WHERE id= {0} AND RFC_Number = "{1}";'.format(row[1],row[4])
+    Failed_status = 'UPDATE AutoDeployment_deploy SET RFC_STATUS="failed", SHOW_STATUS="danger",Completed_Time = NOW() WHERE id= {0} AND RFC_Number = "{1}";'.format(row[1],row[4])
     # row[0] RFC_SQL
     # row[1] id
     # row[21 Deploy_Date

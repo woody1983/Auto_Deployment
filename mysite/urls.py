@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mysite.testdb import testdb
+from mysite.view import hello
+from questions import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^testdb/', testdb),
+    url(r'^hello/', hello),
+    url(r'^index/$', 'AutoDeployment.views.index'),
 ]
