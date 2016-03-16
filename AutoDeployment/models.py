@@ -14,7 +14,8 @@ MAYBECHOICE = (
 
 SHOWCHOICE = (
     ('success','Sucess'),
-    ('pending','Pending'),
+    ('primary','Primary'),
+    ('default','Default'),
     ('danger','Danger'),
     ('info','Info'),
     ('warning','Warning'),
