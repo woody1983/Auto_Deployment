@@ -20,6 +20,13 @@
   <strong>Warning!</strong>  Because the system is still in the testing phase, So Let me know if you have any question!
 </div>
 <table class="table table-hover">
+<tr>
+<td>RFC Number</td>
+<td>Status</td>
+<td>Server</td>
+<td>Deploy Date</td>
+<td></td>
+</tr>
 {% for post in lists %}
     <tr>
       <td><strong>{{ post.RFC_Number }}</strong></td>
@@ -43,13 +50,33 @@
       {{ post.RFC_SQL }}
       </div>
        <div class="modal-footer">
-      <footer>This RFC will be Deploy on the <span class="label label-primary">[{{ post.Deploy_Server}}]</span> on <span class="label label-info">[{{ post.Deploy_Date }}]</span></footer>
+      <footer>This RFC will be Deploy on the <span class="label label-primary">[{{ post.Deploy_Server}}]</span> on <span class="label label-info">[{{ post.Deploy_Date }}]</span></footer><br>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-{{ post.SHOW_STATUS }} progress-bar-striped active " role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">40% Complete (success)</span>
+        </div>
+      </div>
+
       </div>
     </div>
   </div>
 </div>
 {% endfor%}
 </table>
+
+<nav>
+  <ul class="pager">
+    {% if lists.has_previous %}
+    <li><a href="?page={{ lists.previous_page_number }}">Previous</a></li>
+	{% endif %}
+	<li>{{ lists.number }}</li>
+	 {% if lists.has_next %}
+        <li><a href="?page={{ lists.next_page_number }}">Next</a></li>
+	{% endif %}
+  </ul>
+</nav>
+
 
 </div>
 
