@@ -10,10 +10,10 @@ con = mdb.connect('192.168.103.133','deploy','deploy','django')
 now = datetime.datetime.now()
 otherStyleTime = now.strftime("%Y-%m-%d %H:%M:%S")
 
-Select_data = "SELECT RFC_SQL,id,Deploy_Date,RFC_STATUS,RFC_Number,Deploy_Server FROM AutoDeployment_deploy WHERE RFC_STATUS='approved';"
+Select_data = "SELECT RFC_SQL,id,Deploy_Date,RFC_STATUS,RFC_Number,Deploy_Server FROM AutoDeployment_deploy WHERE RFC_STATUS='approved' ORDER BY Deploy_Date;"
 
 Deploy_Server = {"deploy_server" : ['192.168.103.133','deploy','deploy','deploy_PIXOS2'],
-                 "int_sha" : ['10.30.0.21','deploy','deploy','PHX_PIXOS2_NORTH']
+                 "int_sha" : ['10.30.0.21','deploy','deploy','PHX_PIXOS2_NORTH'],
                  "sha_prod" : ['10.30.0.21','deploy','deploy','PHX_PIXOS2_NORTH']
                 }
 				

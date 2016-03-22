@@ -44,7 +44,7 @@ class Deploy(models.Model):
     RFC_Number = models.CharField(max_length=50)
     RFC_SQL = models.TextField(max_length=50000)
     RFC_STATUS = models.CharField(max_length=20, choices=MAYBECHOICE, default='pending')
-    SHOW_STATUS = models.CharField(max_length=20, choices=SHOWCHOICE, default='pending')
+    SHOW_STATUS = models.CharField(max_length=20, choices=SHOWCHOICE, default='default')
     Entry_Time = models.DateTimeField('Entry Time',auto_now_add = True)
     Modify_Time = models.DateTimeField('Modify Time', auto_now = True)
     Deploy_Date = models.DateTimeField('Deploy Date', null = True)

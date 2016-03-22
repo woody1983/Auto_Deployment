@@ -19,3 +19,11 @@ python manage.py createsuperuser
 
 ### Set Time Zone
 >TIME_ZONE = 'Asia/Shanghai'
+>USE_TZ = False
+
+## MySQL Time Zone
+
+```
+[mysqld]
+default-time-zone = '+8:00'
+```

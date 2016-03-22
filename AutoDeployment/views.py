@@ -8,7 +8,7 @@ import datetime
 now = datetime.datetime.now().strftime("%Y%m%d")
 def index(request):
     RFC_list = Deploy.objects.all().order_by('-Deploy_Date')
-    paginator = Paginator(RFC_list, 15)
+    paginator = Paginator(RFC_list, 12)
     page = request.GET.get('page')
     try:
         RFC_list = paginator.page(page)

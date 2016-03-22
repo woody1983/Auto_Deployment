@@ -12,12 +12,24 @@
 <!-- ??? Bootstrap ?? JavaScript ?? -->
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+</br>
+</br>
 
 <div class="container">
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="./">RFC</a></li>
+  <li role="presentation"><a href="../admin/AutoDeployment/deploy/">Deploy</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+
+
+
+
 <h3><span class="label label-default">RFC Dashboard</span></h3>
 <div class="alert alert-warning alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Warning!</strong>  Because the system is still in the testing phase, So Let me know if you have any question!
+  <strong>Warning!</strong>  The system is still in the testing phase. If you have any better suggestion.  Let me know.
 </div>
 <table class="table table-hover">
 <tr>
@@ -25,6 +37,7 @@
 <td>Status</td>
 <td>Server</td>
 <td>Deploy Date</td>
+<td></td>
 <td></td>
 </tr>
 {% for post in lists %}
@@ -36,6 +49,10 @@
 <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{ post.id }}">
   Review SQL
 </button>
+<button type="button" class="btn btn-xs btn-info" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{ post.Deploy_Log }}" data-trigger="focus" >
+  Deploy Log
+</button>
+
 </td>
     </tr>
 
@@ -60,6 +77,12 @@
 {% endfor%}
 </table>
 
+
+<script>$(function () 
+      { $("[data-toggle='popover']").popover();
+      });
+   </script>
+
 <nav>
   <ul class="pager">
     {% if lists.has_previous %}
@@ -73,6 +96,16 @@
 </nav>
 
 
+</div>
+
+<div id="footer" class="container">
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-inner navbar-content-right">
+        <p class="text-muted credit text-right" style="padding: 10px;">
+        I have no patience for useless things.
+        </p>
+    </div>
+</nav>
 </div>
 
 </html>
